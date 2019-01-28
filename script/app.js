@@ -67,9 +67,9 @@ var resourcesLoader = {
 
 };
 
-// 35 46
+// -3 ~ 20
 var resourcesList = [];
-for (var i=35; i<46; i++)
+for (var i=middle_c_index-3; i<=middle_c_index+20; i++)
 {
     resourcesList.push(music_scale_resources[i]);
 }
