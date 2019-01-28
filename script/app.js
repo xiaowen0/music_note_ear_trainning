@@ -67,7 +67,14 @@ var resourcesLoader = {
 
 };
 
-resourcesLoader.load(music_scale_resources, function(){
+// 35 46
+var resourcesList = [];
+for (var i=35; i<46; i++)
+{
+    resourcesList.push(music_scale_resources[i]);
+}
+
+resourcesLoader.load(resourcesList, function(){
     console.log('资源加载完毕。');
 });
 
