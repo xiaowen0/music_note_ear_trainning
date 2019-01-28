@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>音阶听力训练</title>
+    <link rel="stylesheet" href="resources/common_style_classes.css"/>
+    <link rel="stylesheet" href="style/app.css"/>
+    <script src="script/vue.2.5.16.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <div class="padding20">
+
+            <h1>音阶听力训练</h1>
+            <div class="mb20">
+                <label>调性：</label>
+                <select id="tonalitySelectbox" class="selectbox"
+                    v-on:change="changeTonality">
+                    <option v-for="(item, key, index) in tonalityList"
+                            v-bind:value="key">{{item.scale[0]}}</option>
+                    <!--<option value="Gb_major">Gb</option>-->
+                    <!--<option value="Db_major">Db</option>-->
+                    <!--<option value="Ab_major">Ab</option>-->
+                    <!--<option value="Eb_major">Eb</option>-->
+                    <!--<option value="Bb_major">Bb</option>-->
+                    <!--<option value="F_major">F</option>-->
+                    <!--<option value="C_major" selected="selected">C</option>-->
+                    <!--<option value="G_major">G</option>-->
+                    <!--<option value="D_major">D</option>-->
+                    <!--<option value="A_major">A</option>-->
+                    <!--<option value="E_major">E</option>-->
+                    <!--<option value="B_major">B</option>-->
+                    <!--<option value="F#_major">F#</option>-->
+                </select>
+            </div>
+            <div class="mb20">
+                <div class="mb10">
+                    <label>基本音阶</label>
+                </div>
+                <div id="scaleList">
+                    <button class="button scaleButton"
+                            v-for="item in NoteList"
+                            v-on:click="playNote">{{item}}</button>
+                    <!--<button>C</button>-->
+                    <!--<button>D</button>-->
+                    <!--<button>E</button>-->
+                    <!--<button>F</button>-->
+                    <!--<button>G</button>-->
+                    <!--<button>A</button>-->
+                    <!--<button>B</button>-->
+                </div>
+            </div>
+            <div class="mb20">
+                <label>随机生成一段旋律测试听力：</label>
+                <select class="selectbox" v-model="degreeOfDifficulty"
+                    v-on:change="changeDegreeOfDifficulty">
+                    <option value="easy" selected="selected">简单</option>
+                    <option value="normal">一般</option>
+                </select>
+            </div>
+            <div class="mb20">
+                <button class="button green" v-on:click="playTestingScaleList">播放</button>
+                <button class="button" v-on:click="nextTestingCase">下一个</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script/jquery/jquery-3.1.0.min.js"></script>
+    <script src="script/app.js"></script>
+
+</body>
+</html>
+
