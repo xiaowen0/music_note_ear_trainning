@@ -7,7 +7,7 @@ var middle_c_index = 39 - 1;
 
 (function()
 {
-    for (var i=35; i<=46; i++)
+    for (var i=1; i<=88; i++)
     {
         var number = i;
         number < 10 ? number = '0' + number : null;
