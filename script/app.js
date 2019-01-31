@@ -148,10 +148,17 @@ function playAudio(url)
 var app = new Vue({
     el : '#app',
     data : {
+        /**
+         * @var Object
+         */
         tonalityList : music_tonality,
+        /**
+         * @var Array
+         */
         NoteList : getMusicTonalityScale('C_major'),
         degreeOfDifficulty : 'easy',
-        testingScaleList : [1,2,3,4,5]
+        testingScaleList : [1,2,3,4,5],
+        answer : ''
     },
     methods : {
         changeTonality : function (event){
@@ -254,6 +261,58 @@ var app = new Vue({
                     }, delay);
                 })(me.testingScaleList[i], i * 1000);
             }
+        },
+        /**
+         * get right answer
+         * @returns Array
+         */
+        getRightAnswer : function (){
+            var answerList = [];
+            for (var i=0; i<this.testingScaleList.length; i++)
+            {
+                answerList.push(this.NoteList[this.testingScaleList[i] - 1]);
+            }
+
+            return answerList;
+        },
+        inputAnswer : function (event){
+            $(event.target).removeClass('success').removeClass('error');
+        },
+        submitAnswer : function (event) {
+            var rightAnswerList = this.getRightAnswer();
+
+            var userAnswer = $('#answerInputbox').val();
+            var userAnswerList = userAnswer.split(' ');
+
+            // 假设长度不匹配
+            var isRight = false;
+            if (userAnswerList.length === rightAnswerList.length)
+            {
+                // 假设全部正确，遇到不正确时，更改 isRight 标记并终止循环。
+                isRight = true;
+                for (var i=0; i<rightAnswerList.length; i++)
+                {
+                    if (userAnswerList[i] != rightAnswerList[i])
+                    {
+                        isRight = false;
+                        break;
+                    }
+                }
+            }
+
+            if (isRight)
+            {
+                $('#answerInputbox').addClass('success');
+            }
+            else
+            {
+                $('#answerInputbox').addClass('error');
+            }
+        },
+        viewAnswer : function (event) {
+            var rightAnswerList = this.getRightAnswer();
+
+            alert('正确答案是：' + rightAnswerList.join(' '));
         },
         init : function (){
             this.nextTestingCase();

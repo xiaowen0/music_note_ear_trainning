@@ -67,6 +67,18 @@
 
             <div class="mb20">
                 <button class="button green" v-on:click="playTestingScaleList">播放</button>
+            </div>
+
+            <div class="mb20">
+                <label>答案：</label>
+                <input type="text" id="answerInputbox" class="inputbox" v-model="answer"
+                    v-on:input="inputAnswer"/>
+                <p>填写音名，空格分开，如：C D# Gb。</p>
+            </div>
+
+            <div class="mb20">
+                <button class="button info_bg" v-on:click="submitAnswer">提交答案</button>
+                <button class="button" v-on:click="viewAnswer">查看正确答案</button>
                 <button class="button" v-on:click="nextTestingCase">下一个</button>
             </div>
 
