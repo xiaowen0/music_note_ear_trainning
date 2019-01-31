@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="zh" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<html lang="zh" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>音阶听力训练</title>
     <link rel="stylesheet" href="resources/common_style_classes.css"/>
     <link rel="stylesheet" href="style/app.css"/>
+    <script src="script/check_browser.js"></script>
     <script src="script/vue.2.5.16.js"></script>
 </head>
 <body>
+
     <div id="app">
 
         <div class="padding20">
 
             <h1>音阶听力训练</h1>
+
             <div class="mb20">
                 <label>调性：</label>
                 <select id="tonalitySelectbox" class="selectbox"
@@ -52,6 +55,7 @@
                     <!--<button>B</button>-->
                 </div>
             </div>
+
             <div class="mb20">
                 <label>随机生成一段旋律测试听力：</label>
                 <select class="selectbox" v-model="degreeOfDifficulty"
@@ -60,10 +64,12 @@
                     <option value="normal">一般</option>
                 </select>
             </div>
+
             <div class="mb20">
                 <button class="button green" v-on:click="playTestingScaleList">播放</button>
                 <button class="button" v-on:click="nextTestingCase">下一个</button>
             </div>
+
         </div>
     </div>
 
