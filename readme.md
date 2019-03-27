@@ -6,7 +6,7 @@
 
 浏览（开放网络）：<a href="https://xiaowen0.github.io/music_note_ear_trainning/" target="_blank">https://xiaowen0.github.io/music_note_ear_trainning/</a>
 
-浏览（中国大陆）：<a href="http://oschina_xiaowen.gitee.io/happy_birthday" target="_blank">http://oschina_xiaowen.gitee.io/happy_birthday</a>
+浏览（中国大陆）：<a href="http://oschina_xiaowen.gitee.io/music_note_ear_trainning" target="_blank">http://oschina_xiaowen.gitee.io/music_note_ear_trainning</a>
 
 Github 仓库网址：https://github.com/xiaowen0/music_note_ear_trainning
 
